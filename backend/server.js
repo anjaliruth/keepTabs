@@ -1,5 +1,5 @@
 require('dotenv').config()
-
+const Product = require("./ProductModel.js")
 const express = require("express")
 
 const app = express()
@@ -17,7 +17,17 @@ app.use(cors)
 //backend routes
 
 app.get("/items", async function (req, res) {
+try {
+    const products = await Product.find()
+    console.log("Products:", products)
+    res.json(products)
+}
+catch (err) {
+    
+    console.error("Error", err);
+    res.status(500).json({message: err.message})
 
+}
 })
 
 app.listen(PORT, ()=> console.log(`Server listening on port ${PORT} `) )
