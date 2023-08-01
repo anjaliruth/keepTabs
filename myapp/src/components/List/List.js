@@ -19,7 +19,7 @@ export default function List() {
         console.error("Error:", error.message);
     }
 }
-console.log(products)
+console.log("products:", products)
 useEffect(() => {
     fetchProducts();
 }, []);
