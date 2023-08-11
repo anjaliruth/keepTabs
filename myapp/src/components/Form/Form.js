@@ -1,14 +1,22 @@
 import React, { useState } from "react";
-export default function Form() {
+export default function Form({addProduct}) {
   const [date, setDate] = useState(new Date());
   const [item, setItem] = useState("");
   const [location, setLocation] = useState("");
 
   console.log(date);
-  function handleSubmit() {
+  function handleSubmit(e) {
+e.preventDefault()
+    const product = {
+      date, 
+      item, 
+      location
+    }
+    addProduct(product)
+
     setDate(new Date())
-    setItem("test")
-    setLocation("testing")
+    setItem("")
+    setLocation("")
   }
   return (
     <>
