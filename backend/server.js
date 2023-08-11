@@ -30,4 +30,21 @@ catch (err) {
 }
 })
 
+app.post("/items", async function (req, res) {
+    const {date, item, location } = req.body
+    const product = new Product({
+        date,
+        item, 
+        location
+    })
+    try{
+        const newProduct = await product.save()
+        res.status(201).json(newProduct)
+    }
+    catch(err) {
+        console.error("Error", err);
+        res.status(400).json({message: err.message})
+    }
+})
+
 app.listen(PORT, ()=> console.log(`Server listening on port ${PORT} `) )
