@@ -1,22 +1,31 @@
-import React, { useState } from "react";
-export default function Form({addProduct}) {
+import React, { useState, useEffect } from "react";
+export default function Form({ submitProduct, editProduct }) {
   const [date, setDate] = useState(new Date());
   const [item, setItem] = useState("");
   const [location, setLocation] = useState("");
 
-  console.log(date);
-  function handleSubmit(e) {
-e.preventDefault()
-    const product = {
-      date, 
-      item, 
-      location
+  useEffect(() => {
+    if (editProduct) {
+      setDate(editProduct.date);
+      setItem(editProduct.item);
+      setLocation(editProduct.location);
     }
-    addProduct(product)
+  }, [editProduct]);
 
-    setDate(new Date())
-    setItem("")
-    setLocation("")
+  console.log(date);
+  console.log(editProduct)
+  function handleSubmit(e) {
+    e.preventDefault();
+    const product = {
+      date,
+      item,
+      location,
+    };
+    submitProduct(product);
+
+    setDate(new Date());
+    setItem("");
+    setLocation("");
   }
   return (
     <>
@@ -40,7 +49,7 @@ e.preventDefault()
           />
         </div>
         <div className="submitButton">
-            <input type="submit" />
+          <input type="submit" />
         </div>
       </form>
     </>
