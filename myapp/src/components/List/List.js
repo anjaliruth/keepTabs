@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Form from "../Form/Form.js";
+const { DateTime } = require("luxon");
 
 export default function List() {
   const [products, setProducts] = useState([]);
@@ -84,14 +85,43 @@ export default function List() {
     }
   }
 
+  async function deleteProduct(id, product) {
+    const url = `http://localhost:5001/items/${id}`;
+    try {
+      const response = await fetch(url, {
+        // The method property of the options object being passed to fetch is set to 'POST'. This indicates that a POST request is being sent.
+        method: "DELETE",
+
+        // The headers property of the options object is used to specify HTTP headers that will be included with the request. In this case, a Content-Type header is being set.
+        headers: {
+          // The Content-Type header is set to 'application/json', indicating that the body of the request will contain JSON data.
+          "Content-Type": "application/json",
+        },
+
+        // The body property of the options object is used to specify the body of the request. In this case, the 'product' parameter of the function is being stringified into JSON and used as the body.
+        body: JSON.stringify(product),
+      });
+      await fetchProducts();
+    } catch (err) {
+      console.error("Error:", err.message);
+    }
+  }
+
   return (
     <>
       {products.map((product, index) => (
-        <div key={index}>
-          <h3>{product.date}</h3>
-          <h2>{product.item}</h2>
-          <h3>{product.location}</h3>
-          <button onClick={()=> startEdit(product)}>Edit</button>
+        <div className="individualEntries" key={index}>
+          <div className="individualEntryDetails">
+            <h2>{DateTime.fromISO(product.date).toFormat("dd MMM yy")}</h2>
+            <h2>{product.item}</h2>
+            <h2>{product.location}</h2>
+          </div>
+          <div className="individualEntryButtons">
+            <button onClick={() => startEdit(product)}>Edit</button>
+            <button onClick={() => deleteProduct(product._id, product)}>
+              Delete
+            </button>
+          </div>
         </div>
       ))}
       <Form submitProduct={submitProduct} editProduct={editProduct} />
