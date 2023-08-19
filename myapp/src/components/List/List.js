@@ -109,21 +109,32 @@ export default function List() {
 
   return (
     <>
-      {products.map((product, index) => (
-        <div className="individualEntries" key={index}>
-          <div className="individualEntryDetails">
-            <h2>{DateTime.fromISO(product.date).toFormat("dd MMM yy")}</h2>
-            <h2>{product.item}</h2>
-            <h2>{product.location}</h2>
-          </div>
-          <div className="individualEntryButtons">
-            <button onClick={() => startEdit(product)}>Edit</button>
-            <button onClick={() => deleteProduct(product._id, product)}>
-              Delete
-            </button>
-          </div>
-        </div>
-      ))}
+      <table className="inventoryTable">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Item</th>
+            <th>Location</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {products.map((product, index) => (
+            <tr key={index}>
+              <td>{DateTime.fromISO(product.date).toFormat("dd MMM yy")}</td>
+              <td>{product.item}</td>
+              <td>{product.location}</td>
+              <td>
+                <button className="editButton" onClick={() => startEdit(product)}>Edit</button>
+                <button className="deleteButton" onClick={() => deleteProduct(product._id, product)}>
+                ❌
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
       <Form submitProduct={submitProduct} editProduct={editProduct} />
     </>
   );

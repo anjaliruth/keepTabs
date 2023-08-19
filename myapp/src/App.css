@@ -2,24 +2,80 @@
   text-align: center;
 }
 
-.individualEntries{
+/* .individualEntries{
   background-color: aquamarine;
-  display: flex;
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
-  justify-content: space-between;
   gap: 20px;
   width: 80%;
   margin: 0 auto;
-}
+} */
 
 .individualEntryDetails{
-  display: flex;
-  gap: 20px;
+display: flex;
+  background-color: blanchedalmond;
+  text-align: start;
+  
+
 
 }
 
-.individualEntryButtons{
-display: flex;
-flex-direction: row;
-  gap: 20px;
+.inventoryTable{
+  border-collapse: collapse;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  margin: 25px auto;
+  gap:10px;
+  font-size: 0.9em;
+  min-width: 400px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.inventoryTable thead tr{
+  background-color: #FF1053;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.inventoryTable th,
+.inventoryTable td{
+  padding: 12px 15px;
+}
+
+.inventoryTable tbody tr{
+  border-bottom: 1px solid #dddddd;
+}
+
+.inventoryTable tbody tr:nth-of-type(even), .inventoryTable tbody tr:nth-of-type(even) .deleteButton {
+  background-color: #f3f3f3;
+}
+
+.inventoryTable tbody tr:last-of-type{
+  border-bottom: 2px solid #FF1053;
+}
+
+.editButton {
+  background-color:#FF1053;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  font-size: 0.9em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 80ms ease-in;
+}
+.deleteButton{
+background-color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  font-size: 0.9em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 80ms ease-in;
 }
