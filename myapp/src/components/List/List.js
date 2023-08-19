@@ -108,7 +108,7 @@ export default function List() {
   }
 
   return (
-    <>
+    <div className="totalDisplay">
       <table className="inventoryTable">
         <thead>
           <tr>
@@ -136,6 +136,6 @@ export default function List() {
       </table>
 
       <Form submitProduct={submitProduct} editProduct={editProduct} />
-    </>
+    </div>
   );
 }

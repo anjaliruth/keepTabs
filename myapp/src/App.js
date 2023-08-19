@@ -7,7 +7,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Inventory</h1>
+        <div className="totalDisplayShift">
         <List/>
+        </div>
       </header>
     </div>
   );

@@ -2,15 +2,7 @@
   text-align: center;
 }
 
-/* .individualEntries{
-  background-color: aquamarine;
-  display: grid; 
-  grid-template-columns: repeat(3, 1fr);
-  align-items: center;
-  gap: 20px;
-  width: 80%;
-  margin: 0 auto;
-} */
+
 
 .individualEntryDetails{
 display: flex;
@@ -28,7 +20,7 @@ display: flex;
   margin: 25px auto;
   gap:10px;
   font-size: 0.9em;
-  min-width: 400px;
+  max-width: 300px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
@@ -83,12 +75,71 @@ background-color: #ffffff;
 .form{
   display: flex;
   flex-direction: column;
-  width: 20%;
-  background-color: aliceblue;
+  margin-right: 50px;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  padding:20px 40px;
+
 }
 
-.formWithHeader{
+
+/* Add margin between label and input pairs */
+.form input {
+  margin-bottom: 10px;
+}
+
+/* Add specific margin to the submit button */
+.form .submitButton input {
+  margin-top: 10px;
+}
+
+.submitButton input{
+  background-color: #FF1053;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  font-size: 0.9em;
+
+  cursor: pointer;
+  transition: transform 80ms ease-in;
+}
+
+.totalDisplay{
   display: flex;
   flex-direction: column;
-  background-color: #FF1053;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 5px;
+  width: 80%;
+  background-color: aquamarine;
+}
+
+
+.totalDisplayShift{
+  display: flex;
+  justify-content: center;
+  background-color: blueviolet;
+}
+@media screen and (min-width: 700px){
+  .inventoryTable{
+    font-size: 0.8em;
+    min-width: 60%
+  }
+  .totalDisplay{
+    flex-direction: row;
+    gap: 20px;
+  }
+  .totalDisplayShift{
+    justify-content: flex-end;
+  }
+}
+  
+input{
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+
 }

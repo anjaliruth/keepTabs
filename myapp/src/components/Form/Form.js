@@ -42,7 +42,7 @@ export default function Form({ submitProduct, editProduct }) {
           <input value={item} onChange={(e) => setItem(e.target.value)} />
    
  
-          <label>Location</label>
+          <label>Location:</label>
           <input
             value={location}
             onChange={(e) => setLocation(e.target.value)}
