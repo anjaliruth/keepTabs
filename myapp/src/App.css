@@ -79,3 +79,16 @@ background-color: #ffffff;
   cursor: pointer;
   transition: transform 80ms ease-in;
 }
+
+.form{
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  background-color: aliceblue;
+}
+
+.formWithHeader{
+  display: flex;
+  flex-direction: column;
+  background-color: #FF1053;
+}

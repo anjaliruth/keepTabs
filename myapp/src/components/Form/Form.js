@@ -28,30 +28,30 @@ export default function Form({ submitProduct, editProduct }) {
     setLocation("");
   }
   return (
-    <>
+    <div >
+      <form onSubmit={handleSubmit} className="form" >
       <h2> Add Items</h2>
-      <form onSubmit={handleSubmit}>
         <label>Date:</label>
         <input
           type="datetime-local"
           value={date}
           onChange={(e) => setDate(e.target.value)}
         />
-        <div>
+
           <label>Item:</label>
           <input value={item} onChange={(e) => setItem(e.target.value)} />
-        </div>
-        <div className="">
+   
+ 
           <label>Location</label>
           <input
             value={location}
             onChange={(e) => setLocation(e.target.value)}
           />
-        </div>
+   
         <div className="submitButton">
           <input type="submit" />
         </div>
       </form>
-    </>
+    </div>
   );
 }
