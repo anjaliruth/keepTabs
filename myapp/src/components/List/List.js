@@ -125,9 +125,25 @@ export default function List() {
               <td>{product.item}</td>
               <td>{product.location}</td>
               <td>
-                <button className="editButton" onClick={() => startEdit(product)}>Edit</button>
-                <button className="deleteButton" onClick={() => deleteProduct(product._id, product)}>
-                ❌
+                <button
+                  className="editButton"
+                  onClick={() => startEdit(product)}
+                >
+                  Edit
+                </button>
+                <button
+                  className="deleteButton"
+                  onClick={() => {
+                    if (
+                      window.confirm(
+                        "Are you sure you want to delete this product?"
+                      )
+                    ) {
+                      deleteProduct(product._id, product);
+                    }
+                  }}
+                >
+                  ❌ 
                 </button>
               </td>
             </tr>
