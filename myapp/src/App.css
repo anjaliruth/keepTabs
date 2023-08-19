@@ -101,6 +101,7 @@ margin: 0 auto;
   padding: 5px;
   margin: 5px;
   font-size: 0.9em;
+  font-family: 'Comfortaa', cursive;
 
   cursor: pointer;
   transition: transform 80ms ease-in;
