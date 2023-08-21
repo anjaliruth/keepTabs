@@ -20,6 +20,8 @@ export default function List() {
         throw new Error("Network response was not ok");
       }
       const data = await response.json();
+      //Sort the data array based on the date in ascending order
+      data.sort((a, b) => DateTime.fromISO(a.date) - DateTime.fromISO(b.date));
 
       setProducts(data);
     } catch (error) {
@@ -47,7 +49,7 @@ export default function List() {
         // The body property of the options object is used to specify the body of the request. In this case, the 'product' parameter of the function is being stringified into JSON and used as the body.
         body: JSON.stringify(product),
       });
-      fetchProducts();
+      await fetchProducts();
     } catch (err) {
       console.error("Error:", err.message);
     }
@@ -71,7 +73,7 @@ export default function List() {
         body: JSON.stringify(updatedProduct),
       });
       setEditProduct(null);
-      fetchProducts();
+      await fetchProducts();
     } catch (err) {
       console.error("Error:", err.message);
     }

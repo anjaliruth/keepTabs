@@ -1,5 +1,8 @@
+:root{
+  --color1: #FF1053;
+}
+
 .App {
-  text-align: center;
   font-family: 'Comfortaa', cursive;
 }
 
@@ -26,7 +29,7 @@ display: flex;
 }
 
 .inventoryTable thead tr{
-  background-color: #FF1053;
+  background-color: var(--color1);
   color: #ffffff;
   text-align: left;
   font-weight: bold;
@@ -46,11 +49,11 @@ display: flex;
 }
 
 .inventoryTable tbody tr:last-of-type{
-  border-bottom: 2px solid #FF1053;
+  border-bottom: 2px solid var(--color1);
 }
 
 .editButton {
-  background-color:#FF1053;
+  background-color:var(--color1);
   color: #ffffff;
   border: none;
   border-radius: 5px;
@@ -94,7 +97,7 @@ margin: 0 auto;
 }
 
 .submitButton input{
-  background-color: #FF1053;
+  background-color: var(--color1);
   color: #ffffff;
   border: none;
   border-radius: 5px;
@@ -112,7 +115,7 @@ margin: 0 auto;
   flex-direction: column;
   align-items: center;
   justify-content: center; 
-  padding: 10px;
+  padding: 20px;
   border-radius: 5px;
   width: 80%;
   max-width: 100%; 
@@ -145,4 +148,16 @@ input{
   padding: 5px;
   border-radius: 5px;
 
+}
+
+.title{
+  margin: 30px auto;
+  width: 20%;
+  color: var(--color1);
+  text-align: center;
+}
+
+.header{
+  text-align: center;
+  color: var(--color1);
 }

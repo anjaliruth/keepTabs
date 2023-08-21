@@ -30,7 +30,7 @@ export default function Form({ submitProduct, editProduct }) {
   return (
     <div >
       <form onSubmit={handleSubmit} className="form" >
-      <h2> Add Items</h2>
+      <h2 className="header"> Add Items</h2>
         <label>Date:</label>
         <input
           type="datetime-local"
