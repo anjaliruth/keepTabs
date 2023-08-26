@@ -11,7 +11,7 @@ export default function List() {
   }
 
   async function fetchProducts() {
-    const url = "http://localhost:5001/items";
+    const url = "https://keeptabss.onrender.com/items";
 
     try {
       const response = await fetch(url);
@@ -34,7 +34,7 @@ export default function List() {
   }, []);
 
   async function addProduct(product) {
-    const url = "http://localhost:5001/items";
+    const url = "https://keeptabss.onrender.com/items";
     try {
       const response = await fetch(url, {
         // The method property of the options object being passed to fetch is set to 'POST'. This indicates that a POST request is being sent.
@@ -56,7 +56,7 @@ export default function List() {
   }
 
   async function updateProduct(id, updatedProduct) {
-    const url = `http://localhost:5001/items/${id}`;
+    const url = `https://keeptabss.onrender.com/items/${id}`;
     try {
       const response = await fetch(url, {
         // The method property of the options object being passed to fetch is set to 'POST'. This indicates that a POST request is being sent.
@@ -88,7 +88,7 @@ export default function List() {
   }
 
   async function deleteProduct(id, product) {
-    const url = `http://localhost:5001/items/${id}`;
+    const url = `https://keeptabss.onrender.com/items/${id}`;
     try {
       const response = await fetch(url, {
         // The method property of the options object being passed to fetch is set to 'POST'. This indicates that a POST request is being sent.
