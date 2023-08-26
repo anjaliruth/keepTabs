@@ -67,4 +67,18 @@ app.patch("/items/:id", async function (req, res) {
   }
 });
 
+app.delete("/items/:id", async function (req, res) {
+  try {
+    const deletedProduct = await Product.findByIdAndRemove(req.params.id);
+    if (!deletedProduct) {
+      return res.status(404).json({ message: "Product not found" });
+    }
+    res.status(200).json(deletedProduct);
+  } catch (err) {
+    console.error("Error", err);
+    res.status(500).json({ message: err.message });
+  }
+});
+
+
 app.listen(PORT, () => console.log(`Server listening on port ${PORT} `));

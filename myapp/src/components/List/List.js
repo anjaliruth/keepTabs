@@ -11,7 +11,7 @@ export default function List() {
   }
 
   async function fetchProducts() {
-    const url = "http://localhost:5001/items";
+    const url = "https://keeptabss.onrender.com/items";
 
     try {
       const response = await fetch(url);
