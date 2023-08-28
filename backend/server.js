@@ -67,6 +67,7 @@ app.patch("/items/:id", async function (req, res) {
   }
 });
 
+
 app.delete("/items/:id", async function (req, res) {
   try {
     const deletedProduct = await Product.findByIdAndRemove(req.params.id);
